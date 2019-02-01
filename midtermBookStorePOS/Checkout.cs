@@ -41,6 +41,12 @@ namespace midtermBookStorePOS
             double subTotal = SubTotal();
             double tax = SalesTaxTotal();
             double grandTotal = subTotal + tax;
+            
+            return grandTotal;
+        }
+        public static void PaymentChoice(double grandTotal)
+        {
+            //double grandTotal;
             bool paymentReturn = true;
             while (paymentReturn == true)
             {
@@ -65,7 +71,6 @@ namespace midtermBookStorePOS
                     Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
                 paymentReturn = true;
             }
-            return grandTotal;
         }
     }
 }

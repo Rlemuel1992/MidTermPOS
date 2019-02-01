@@ -57,7 +57,7 @@ namespace midtermBookStorePOS
             bool expireValidator = true;
             while (expireValidator == true)
             {
-                Regex ExpireValid = new Regex(@"(^[0-9]{4})$");
+                Regex ExpireValid = new Regex(@"(^[0-9]{4})$"); //clean regEX
                 string expirationNum = Console.ReadLine();
                 if (!ExpireValid.IsMatch(expirationNum))
                 {
