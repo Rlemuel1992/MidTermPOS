@@ -10,21 +10,37 @@ namespace midtermBookStorePOS
     {
         public double Price { get; internal set; }
 
+        //public void Display()
+        //{
+        //    Console.WriteLine(Book.Price);
+        //}
         public static void DisplayMenu()
         {
             List<Book> Books = new List<Book>();
             Book InSearchofLostTime = new Book("In Search of Lost Time", "Marcel Proust", 22.75);
+            Books.Add(InSearchofLostTime);
             Book DonQuixote = new Book("Don Quixote", "Miguel de Cervantes", 29.99);
+            Books.Add(DonQuixote);
             Book Ulysses = new Book("Ulysses", "James Joyce", 15.95);
+            Books.Add(Ulysses);
             Book TheGreatGatsby = new Book("The Great Gatsby", "F.Scott Fitzgerald", 10.82);
+            Books.Add(TheGreatGatsby);
             Book MobyDick = new Book("Moby Dick", "Herman Melville", 9.56);
+            Books.Add(MobyDick);
             Book Hamlet = new Book("Hamlet", "William Shakespeare", 12.95);
+            Books.Add(Hamlet);
             Book WarandPeace = new Book("War and Peace", "Leo Tolstoy", 11.16);
+            Books.Add(WarandPeace);
             Book TheOdyssey = new Book("The Odyssey", "Homer", 14.39);
+            Books.Add(TheOdyssey);
             Book Lolita = new Book("Lolita", "Vladimir Nabokov", 17.00);
+            Books.Add(Lolita);
             Book OntheRoad = new Book("On the Road", "Jack Kerouac", 14.45);
+            Books.Add(OntheRoad);
             Book Breakfastofchampions = new Book("Breakfast of champions", "Kurt Vonnegut", 15.35);
+            Books.Add(Breakfastofchampions);
             Book TheAlchemist = new Book("The Alchemist", "Paulo Coelho", 13.89);
+            Books.Add(TheAlchemist);
 
             int userNumSelectMenu;
             bool isValidInput = false;
@@ -36,51 +52,51 @@ namespace midtermBookStorePOS
 
             if (userNumSelectMenu == 1)
             {
-                Console.WriteLine(InSearchofLostTime);
+                Console.WriteLine(InSearchofLostTime.Title +  ", "  + InSearchofLostTime.Author + ", $" + InSearchofLostTime.Price);
             }
             else if (userNumSelectMenu == 2)
             {
-                Console.WriteLine(DonQuixote);
+                Console.WriteLine(DonQuixote.Title + ", " + DonQuixote.Author + ", $" + DonQuixote.Price);
             }
             else if (userNumSelectMenu == 3)
             {
-                Console.WriteLine(Ulysses);
+                Console.WriteLine(Ulysses.Title + ", " + Ulysses.Author + ", $" + Ulysses.Price);
             }
             else if (userNumSelectMenu == 4)
             {
-                Console.WriteLine(TheGreatGatsby);
+                Console.WriteLine(TheGreatGatsby.Title + ", " + TheGreatGatsby.Author + ", $" + TheGreatGatsby.Price);
             }
             else if (userNumSelectMenu == 5)
             {
-                Console.WriteLine(MobyDick);
+                Console.WriteLine(MobyDick.Title + ", " + MobyDick.Author + ", $" + MobyDick.Price);
             }
             else if (userNumSelectMenu == 6)
             {
-                Console.WriteLine(Hamlet);
+                Console.WriteLine(Hamlet.Title + ", " + Hamlet.Author + ", $" + Hamlet.Price);
             }
             else if (userNumSelectMenu == 7)
             {
-                Console.WriteLine(WarandPeace);
+                Console.WriteLine(WarandPeace.Title + ", " + WarandPeace.Author + ", $" + WarandPeace.Price);
             }
             else if (userNumSelectMenu == 8)
             {
-                Console.WriteLine(TheOdyssey);
+                Console.WriteLine(TheOdyssey.Title + ", " + TheOdyssey.Author + ", $" + TheOdyssey.Price);
             }
             else if (userNumSelectMenu == 9)
             {
-                Console.WriteLine(Lolita);
+                Console.WriteLine(Lolita.Title + ", " + Lolita.Author + ", $" + Lolita.Price);
             }
             else if (userNumSelectMenu == 10)
             {
-                Console.WriteLine(OntheRoad);
+                Console.WriteLine(OntheRoad.Title + ", " + OntheRoad.Author + ", $" + OntheRoad.Price);
             }
             else if (userNumSelectMenu == 11)
             {
-                Console.WriteLine(Breakfastofchampions);
+                Console.WriteLine(Breakfastofchampions.Title + ", " + Breakfastofchampions.Author + ", $" + Breakfastofchampions.Price);
             }
             else if (userNumSelectMenu == 12)
             {
-                Console.WriteLine(TheAlchemist);
+                Console.WriteLine(TheAlchemist.Title + ", " + TheAlchemist.Author + ", $" + TheAlchemist.Price);
             }
             else
             {
