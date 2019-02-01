@@ -34,7 +34,7 @@ namespace midtermBookStorePOS
                     continue;
                     //loops to top
                 }
-                
+                //public static Book PrintInfo()
             }
         }
     }
