@@ -37,9 +37,34 @@ namespace midtermBookStorePOS
 
         public double GrandTotal()
         {
+            PaymentValidation c = new PaymentValidation();
             double subTotal = SubTotal();
             double tax = SalesTaxTotal();
             double grandTotal = subTotal + tax;
+            bool paymentReturn = true;
+            while (paymentReturn == true)
+            {
+                Console.WriteLine("How will you be paying today? cash, card, or check?");
+                string paymentChoice = Console.ReadLine().ToLower();
+                if (paymentChoice == "cash")
+                {
+                    PaymentValidation.Cash(grandTotal);
+                    paymentReturn = false;
+                }
+                else if (paymentChoice == "card")
+                {
+                    PaymentValidation.Credit();
+                    paymentReturn = false;
+                }
+                else if (paymentChoice == "check")
+                {
+                    PaymentValidation.Check();
+                    paymentReturn = false;
+                }
+                else
+                    Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
+                paymentReturn = true;
+            }
             return grandTotal;
         }
     }
