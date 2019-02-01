@@ -8,6 +8,8 @@ namespace midtermBookStorePOS
 {
     class Menu
     {
+        public double Price { get; internal set; }
+
         public static void DisplayMenu()
         {
             int userNumSelectMenu;
@@ -16,7 +18,7 @@ namespace midtermBookStorePOS
             Console.WriteLine("\nPlease enter a menu number");
             userNumSelectMenu = Validation.SelectNum(); //Calling class of validation to select number of book
 
-            if (userNumSelectMenu == Book)
+            if (userNumSelectMenu == List<Book>
             {
 
             }
