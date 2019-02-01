@@ -11,6 +11,7 @@ namespace midtermBookStorePOS
         static void Main(string[] args)
         {
             Menu.DisplayMenu();
+            Checkout.GrandTotal();
         }
     }
 }
