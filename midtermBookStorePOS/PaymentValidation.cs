@@ -63,7 +63,7 @@ namespace midtermBookStorePOS
                 bool expireValidator = true;
                 while (expireValidator == true)
                 {
-                    Regex ExpireValid = new Regex(@"(^[0-9]{4})$"); //clean regEX
+                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[2]{1}[0]{1}[1-9]{1}[0-9])$"); //clean regEX
                     string expirationNum = Console.ReadLine();
                     if (!ExpireValid.IsMatch(expirationNum))
                     {
@@ -103,10 +103,10 @@ namespace midtermBookStorePOS
                 if (!accValid.IsMatch(accNum))
                 {
                     Console.WriteLine("Your account number is invalid, it's the number in the middle of the check.");
-                    validCheckNo = true;
+                    validAccNum = true;
                 }
                 else
-                    validCheckNo = false;
+                    validAccNum = false;
             }
             // Validating the routing number on the check.-------------------------------
             Console.WriteLine("Finally, enter your routing number");

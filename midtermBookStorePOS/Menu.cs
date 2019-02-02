@@ -8,10 +8,10 @@ namespace midtermBookStorePOS
 {
     class Menu
     {
-        
+
         public double Price { get; internal set; }
 
-        
+
         public static void DisplayMenu()
         {
             List<Book> Books = new List<Book>();
@@ -45,11 +45,12 @@ namespace midtermBookStorePOS
             int quantity = 0;
             Checkout c = new Checkout(quantity);
 
-            
+
             Console.WriteLine("Please choose a number of the following options:\n");
             Console.WriteLine("1. In Search Of Lost Time By Marcel Proust\n2. Don Quixote By Miguel De Cervantes\n3. Ulysses By James Joyce\n4. The Great Gatsby By F.Scott Fitzgerald\n5. Moby Dick By Herman Melville\n6. Hamlet By William Shakespeare\n7. War and Peace By Leo Tolstoy\n8. The Odyssey By Homer\n9. Lolita By Vladimir Nabokov\n10. On the Road By Jack Kerouac\n11. Breakfast of Champions By Kurt Vonnegut\n12. The Alchemist By Paulo Coelho");
             Console.WriteLine("\nPlease enter a menu number");
             userNumSelectMenu = Validation.SelectNum(); //Calling class of validation to select number of book
+
             if (userNumSelectMenu == 1)
             {
                 Console.WriteLine(InSearchofLostTime.Title + ", " + InSearchofLostTime.Author + ", $" + InSearchofLostTime.Price);

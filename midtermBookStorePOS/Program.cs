@@ -14,6 +14,7 @@ namespace midtermBookStorePOS
         {           
             Menu.DisplayMenu();
             Checkout.PaymentChoice(grandTotal);
+            
         }
     }
 }           
