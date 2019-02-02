@@ -153,7 +153,7 @@ namespace midtermBookStorePOS
                 {
                     Console.WriteLine("That's not between 1-12. Try Again.");
                 }
-                while (isValidInput);
+                while (isValidInput) ;
                 toMenu = backToMenu();
             }
         }
