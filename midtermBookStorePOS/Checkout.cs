@@ -16,9 +16,8 @@ namespace midtermBookStorePOS
         {
         }
 
-        public Checkout(Menu item, int quantity)
+        public Checkout(int quantity)
         {
-            Item = item;
             Quantity = quantity;
         }
 
@@ -55,17 +54,14 @@ namespace midtermBookStorePOS
                 if (paymentChoice == "cash")
                 {
                     PaymentValidation.Cash(grandTotal);
-                    paymentReturn = false;
                 }
                 else if (paymentChoice == "card")
                 {
                     PaymentValidation.Credit();
-                    paymentReturn = false;
                 }
                 else if (paymentChoice == "check")
                 {
                     PaymentValidation.Check();
-                    paymentReturn = false;
                 }
                 else
                     Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
