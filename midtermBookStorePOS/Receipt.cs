@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 namespace midtermBookStorePOS
 {
     class Receipt
-    {
-        public void PrintReceipt()
+    {        
+
+        public static void PrintReceipt()
         {
             foreach (Book b in Program.Cart)
             {
-
+                Console.WriteLine(b.Title, b.Author, b.Price);
             }
         }
         //I want foreach here
         //we need a second list 
+        //
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace midtermBookStorePOS
 {
     class Menu
-    {
+    {                           //Rudy-Add descriptions of books
 
         public double Price { get; internal set; }
         
