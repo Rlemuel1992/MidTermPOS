@@ -14,7 +14,7 @@ namespace midtermBookStorePOS
 
         }
         public static void Cash(double grandTotal)
-        {
+        {            
             Console.WriteLine($"Your total is {grandTotal}, please type in the amount tendered");
             double.TryParse(Console.ReadLine(), out double cashTaken);
             double changeBack = cashTaken - grandTotal;

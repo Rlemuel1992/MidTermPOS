@@ -10,7 +10,8 @@ namespace midtermBookStorePOS
     {
         public Menu Item { get; set; }
         public int Quantity { get; set; }
-        private readonly double taxRate = 0.06;
+        public double Price { get; set; }
+        public double taxRate = 0.06;
 
         public Checkout()
         {
