@@ -66,7 +66,7 @@ namespace midtermBookStorePOS
                 }
                 else
                     Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
-                paymentReturn = true;
+                paymentReturn = false;
             }
         }
     }

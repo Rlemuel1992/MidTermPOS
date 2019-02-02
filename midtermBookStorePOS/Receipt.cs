@@ -13,7 +13,8 @@ namespace midtermBookStorePOS
         {
             foreach (Book b in Program.Cart)
             {
-                Console.WriteLine(b.Title, b.Author, b.Price, b.Quantity);
+                Console.WriteLine(b.Title + b.Author + b.Price + b.Quantity);
+
             }
         }
     }    
