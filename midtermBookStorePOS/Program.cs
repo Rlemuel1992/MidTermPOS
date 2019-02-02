@@ -11,10 +11,13 @@ namespace midtermBookStorePOS
         private static double grandTotal;
 
         static void Main(string[] args)
-        {           
+        {
+            
             Menu.DisplayMenu();
             Checkout.PaymentChoice(grandTotal);
             
+
         }
+        public static List<Book> Cart = new List<Book>();
     }
 }           

@@ -8,6 +8,14 @@ namespace midtermBookStorePOS
 {
     class Receipt
     {
+        public void PrintReceipt()
+        {
+            foreach (Book b in Program.Cart)
+            {
 
+            }
+        }
+        //I want foreach here
+        //we need a second list 
     }
 }
