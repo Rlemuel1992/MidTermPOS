@@ -63,11 +63,11 @@ namespace midtermBookStorePOS
                 bool expireValidator = true;
                 while (expireValidator == true)
                 {
-                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[2]{1}[0]{1}[1-9]{1}[0-9])$"); //clean regEX
+                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[- /.][2]{1}[0]{1}[1-9]{1}[0-9]{1})$"); 
                     string expirationNum = Console.ReadLine();
                     if (!ExpireValid.IsMatch(expirationNum))
                     {
-                        Console.WriteLine("Wrong format, please use MMYY");
+                        Console.WriteLine("Wrong format, please use MM/YYYY");
                         expireValidator = true;
                     }
                     else

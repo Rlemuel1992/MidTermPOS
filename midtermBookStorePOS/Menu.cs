@@ -159,7 +159,7 @@ namespace midtermBookStorePOS
         }
         public static bool backToMenu()
         {
-            Console.WriteLine("\nWould you like to return to the Menu or proceed to Checkout?");
+            Console.WriteLine("\nWould you like to return to the Menu or proceed to Checkout?(Menu or Checkout)");
             string input = Console.ReadLine().ToLower();
             input = input.ToLower();
             bool goOn;
