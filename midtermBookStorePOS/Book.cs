@@ -8,18 +8,20 @@ namespace midtermBookStorePOS
 {
     class Book
     {
+        public string Title { get; set; }
+        public double Price { get; set; }
+        public string Author { get; set; }
+		public int Quantity { get; set; }
         public Book()
         {
 
         }
-        public Book(string title, string author, double price)
+        public Book(string title, string author, double price, int quantity)
         {
+			Quantity = quantity;
             Price = price;
             Title = title;
             Author = author;
-        }
-        public string Title { get; set; }
-        public double Price { get; set; }
-        public string Author { get; set; }
+        }       
         }
 }

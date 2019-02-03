@@ -9,64 +9,76 @@ namespace midtermBookStorePOS
 {
     class PaymentValidation
     {
+		
         public PaymentValidation()
         {
-
-        }
+			
+		}
         public static void Cash(double grandTotal)
         {
             Console.WriteLine($"Your total is {grandTotal}, please type in the amount tendered");
             double.TryParse(Console.ReadLine(), out double cashTaken);
             double changeBack = cashTaken - grandTotal;
-            Console.WriteLine($"You'll be getting {changeBack}. ");
+            Console.WriteLine($"You'll be getting back ${changeBack} Thank you!. ");
+			Receipt.PrintReceipt();
         }
+
         public static void Credit()
         {
-            // Validating card number---------------------------------------
-            Console.WriteLine("Enter your credit card number");
-            bool cardValidator = true;
-            while (cardValidator == true)
+            bool isAllValid = true;
+            while (isAllValid == true)
             {
-                Regex cardValid = new Regex(@"(^[0-9]{16})$");
-                string cardNumber = Console.ReadLine();
-                if (!cardValid.IsMatch(cardNumber))
+
+
+                // Validating card number---------------------------------------
+                Console.WriteLine("Enter your credit card number");
+                bool cardValidator = true;
+                while (cardValidator == true)
                 {
-                    Console.WriteLine("Wrong card number, try again! \n");
-                    cardValidator = true;
+                    Regex cardValid = new Regex(@"(^[0-9]{16})$");
+                    string cardNumber = Console.ReadLine();
+                    if (!cardValid.IsMatch(cardNumber))
+                    {
+                        Console.WriteLine("Wrong card number, try again! \n");
+                        cardValidator = true;
+                    }
+                    else
+                        cardValidator = false;
                 }
-                else
-                    cardValidator = false;
-            }
-            // Validating the CVV number on the back of the card------------------------------------
-            Console.WriteLine("Now please input your CVV number (This number is located on the back of your card)");
-            bool cvvValidator = true;
-            while (cvvValidator == true)
-            {
-                Regex CVVValid = new Regex(@"(^[0-9]{3})$");
-                string cvvNum = Console.ReadLine();
-                if (!CVVValid.IsMatch(cvvNum))
+                // Validating the CVV number on the back of the card------------------------------------
+                Console.WriteLine("Now please input your CVV number (This number is located on the back of your card)");
+                bool cvvValidator = true;
+                while (cvvValidator == true)
                 {
-                    Console.WriteLine("Wrong input for the CVV, it should be 3 numerical values. EX: 123 \n");
-                    cvvValidator = true;
+                    Regex CVVValid = new Regex(@"(^[0-9]{3})$");
+                    string cvvNum = Console.ReadLine();
+                    if (!CVVValid.IsMatch(cvvNum))
+                    {
+                        Console.WriteLine("Wrong input for the CVV, it should be 3 numerical values. EX: 123 \n");
+                        cvvValidator = true;
+                    }
+                    else
+                        cvvValidator = false;
                 }
-                else
-                    cvvValidator = false;
-            }
-            // Validating the expiration date----------------------------------------
-            Console.WriteLine("Great, we're almost there, now enter your exp date in MMYY format, no special characters!");
-            bool expireValidator = true;
-            while (expireValidator == true)
-            {
-                Regex ExpireValid = new Regex(@"(^[0-9]{4})$");
-                string expirationNum = Console.ReadLine();
-                if (!ExpireValid.IsMatch(expirationNum))
+                // Validating the expiration date----------------------------------------
+                Console.WriteLine("Great, we're almost there, now enter your exp date in MMYY format, no special characters!");
+                bool expireValidator = true;
+                while (expireValidator == true)
                 {
-                    Console.WriteLine("Wrong format, please use MMYY");
-                    expireValidator = true;
-                }
-                else
-                    expireValidator = false;
-            }
+                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[1-2]{1}[0-9]{1})$"); //clean regEX
+                    string expirationNum = Console.ReadLine();
+                    if (!ExpireValid.IsMatch(expirationNum))
+                    {
+                        Console.WriteLine("Wrong format, please use MMYY");
+                        expireValidator = true;
+                    }
+                    else
+                        expireValidator = false;
+					Receipt.PrintReceipt();
+				}
+				
+			}
+            isAllValid = false;
         }
         public static void Check()
         {
@@ -95,10 +107,10 @@ namespace midtermBookStorePOS
                 if (!accValid.IsMatch(accNum))
                 {
                     Console.WriteLine("Your account number is invalid, it's the number in the middle of the check.");
-                    validCheckNo = true;
+                    validAccNum = true;
                 }
                 else
-                    validCheckNo = false;
+                    validAccNum = false;
             }
             // Validating the routing number on the check.-------------------------------
             Console.WriteLine("Finally, enter your routing number");
@@ -114,7 +126,8 @@ namespace midtermBookStorePOS
                 }
                 else
                     validRoutingNum = false;
-            }
+				Receipt.PrintReceipt();
+			}
         }
     }
 }

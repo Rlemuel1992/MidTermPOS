@@ -11,31 +11,30 @@ namespace midtermBookStorePOS
         public static int SelectNum()
         {
             bool temp;
-            int numTemp;
-            while (true)
-            {
-                string userNum = Console.ReadLine();
-                if (temp = int.TryParse(userNum, out numTemp))
-                {
-                    if (numTemp > 0 && numTemp <= 12)
-                    {
-                        return numTemp;
-                    }
-                    else
-                    {
-                        Console.Write("Invalid input, enter a number between 1 and 12: ");
-                        continue;
-                        //loops to top
-                    }
-                }
-                else
-                {
-                    Console.Write("Invalid input, enter a number between 1 and 12: ");
-                    continue;
-                    //loops to top
-                }
-                //public static Book PrintInfo()
-            }
-        }
+			while (true)
+			{
+				string userNum = Console.ReadLine();
+				if (temp = int.TryParse(userNum, out int numTemp))
+				{
+					if (numTemp > 0 && numTemp <= 12)
+					{
+						return numTemp;
+					}
+					else
+					{
+						Console.Write("Invalid input, enter a number between 1 and 12: ");
+						continue;
+						//loops to top
+					}
+				}
+				else
+				{
+					Console.Write("Invalid input, enter a number between 1 and 12: ");
+					continue;
+					//loops to top
+				}
+				//public static Book PrintInfo()
+			}
+		}
     }
 }
