@@ -6,71 +6,73 @@ using System.Threading.Tasks;
 
 namespace midtermBookStorePOS
 {
-    class Checkout
-    {
-        public Menu Item { get; set; }
+	class Checkout
+	{
+		public List<Book> Cart = new List<Book>();
+		public Menu Item { get; set; }
         public int Quantity { get; set; }
         private readonly double taxRate = 0.06;
+		public double GrandTotal { get; set; }
 
-        public Checkout()
-        {
-        }
 
-        public Checkout(int quantity)
-        {
-            Quantity = quantity;
-        }
+	
 
-        public double SubTotal()
+        public void CalculatingCost()
         {
-            double subTotal = Item.Price * Quantity;
-            return subTotal;
-        }
 
-        public double SalesTaxTotal()
-        {
-            double subTotal = SubTotal();
-            double tax = subTotal * taxRate;
-            return tax;
-        }
+			
+			double subTotal = 0;
+			foreach (Book q in Cart)
+			{
+				
+				
+				subTotal += q.Price * q.Quantity;
+				Console.WriteLine(q.Title);
+				Console.WriteLine(q.Author);
+				Console.WriteLine(q.Price);
+				Console.WriteLine(q.Quantity);
+			
+			}
+			Console.WriteLine($"Your subtotal is {subTotal}");
 
-        public double GrandTotal()
+			double tax = subTotal * taxRate;
+			GrandTotal = subTotal + tax;
+			
+
+		}
+
+        public void PaymentChoice(double grandTotal)
         {
-            PaymentValidation c = new PaymentValidation();
-            double subTotal = SubTotal();
-            double tax = SalesTaxTotal();
-            double grandTotal = subTotal + tax;
             
-            return grandTotal;
-        }
-        public static void PaymentChoice(double grandTotal)
-        {
-            //double grandTotal;
             bool paymentReturn = true;
             while (paymentReturn == true)
             {
                 Console.WriteLine("How will you be paying today? cash, card, or check?");
                 string paymentChoice = Console.ReadLine().ToLower();
-                if (paymentChoice == "cash")
-                {
+				if (paymentChoice == "cash")
+				{
 					paymentReturn = false;
 					PaymentValidation.Cash(grandTotal);
+
+				}
+				else if (paymentChoice == "card")
+				{
+					PaymentValidation.Credit();
+					paymentReturn = false;
+				}
+				else if (paymentChoice == "check")
+				{
+					PaymentValidation.Check();
+					paymentReturn = false;
 					
-                }
-                else if (paymentChoice == "card")
-                {
-                    PaymentValidation.Credit();
-					paymentReturn = false;
 				}
-                else if (paymentChoice == "check")
-                {
-                    PaymentValidation.Check();
-					paymentReturn = false;
+				else
+				{
+					Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
+					paymentReturn = true;
 				}
-                else
-                    Console.WriteLine("Sorry, I didn't understand, please write 'cash' 'card' or 'check'.");
-                paymentReturn = true;
             }
         }
-    }
+	
+	}
 }

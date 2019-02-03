@@ -14,13 +14,16 @@ namespace midtermBookStorePOS
         {
 			
 		}
+
         public static void Cash(double grandTotal)
         {
+
+			
             Console.WriteLine($"Your total is {grandTotal}, please type in the amount tendered");
             double.TryParse(Console.ReadLine(), out double cashTaken);
             double changeBack = cashTaken - grandTotal;
             Console.WriteLine($"You'll be getting back ${changeBack} Thank you!. ");
-			Receipt.PrintReceipt();
+			
         }
 
         public static void Credit()
@@ -67,14 +70,16 @@ namespace midtermBookStorePOS
                 {
                     Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[1-2]{1}[0-9]{1})$"); //clean regEX
                     string expirationNum = Console.ReadLine();
-                    if (!ExpireValid.IsMatch(expirationNum))
-                    {
-                        Console.WriteLine("Wrong format, please use MMYY");
-                        expireValidator = true;
-                    }
-                    else
-                        expireValidator = false;
-					Receipt.PrintReceipt();
+					if (!ExpireValid.IsMatch(expirationNum))
+					{
+						Console.WriteLine("Wrong format, please use MMYY");
+						expireValidator = true;
+					}
+					else
+					{
+						expireValidator = false;
+						
+					}
 				}
 				
 			}
@@ -119,15 +124,18 @@ namespace midtermBookStorePOS
             {
                 string routingNum = Console.ReadLine();
                 Regex routingValid = new Regex(@"(^[0-9]{9})$");
-                if (!routingValid.IsMatch(routingNum))
-                {
-                    Console.WriteLine("Your routing number is invalid, it's the 9 digit number on the left of your check.");
-                    validRoutingNum = true;
-                }
-                else
-                    validRoutingNum = false;
-				Receipt.PrintReceipt();
+				if (!routingValid.IsMatch(routingNum))
+				{
+					Console.WriteLine("Your routing number is invalid, it's the 9 digit number on the left of your check.");
+					validRoutingNum = true;
+				}
+				else
+				{
+					validRoutingNum = false;
+					
+				}
 			}
         }
-    }
+		
+	}
 }
