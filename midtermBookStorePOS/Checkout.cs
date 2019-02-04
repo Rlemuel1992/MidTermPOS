@@ -27,10 +27,13 @@ namespace midtermBookStorePOS
 				
 				
 				subTotal += q.Price * q.Quantity;
-				Console.WriteLine(q.Title);
-				Console.WriteLine(q.Author);
-				Console.WriteLine(q.Price);
-				Console.WriteLine(q.Quantity);
+				Console.WriteLine();
+				Console.WriteLine($"Title: { q.Title}");
+				Console.WriteLine($"Author: {q.Author}");
+				Console.WriteLine($"Price: ${q.Price}");
+				Console.WriteLine($"You ordered: {q.Quantity}");
+				Console.WriteLine();
+				Console.WriteLine("--------------------------------");
 			
 			}
 			Console.WriteLine($"Your subtotal is {subTotal}");

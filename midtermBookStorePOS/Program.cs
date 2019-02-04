@@ -96,7 +96,22 @@ namespace midtermBookStorePOS
 					string keepShopping = Console.ReadLine().ToLower();
 					if (keepShopping == "y")
 					{
-						moreBooks = true;
+						Console.WriteLine("Would you like to display the list again? y/n");
+						string booksAgain = Console.ReadLine().ToLower();
+						if (booksAgain == "y")
+						{
+							num = 1;
+							for (int i = 0; i < Books.Count; i++)
+							{
+								Console.WriteLine(num + ". " + Books[i].Title);
+								num++;
+								moreBooks = true;
+							}
+						}
+						else if (booksAgain == "n")
+						{
+							moreBooks = true;
+						}
 					}
 					else if (keepShopping == "n")
 					{
@@ -118,7 +133,7 @@ namespace midtermBookStorePOS
 		{
 			foreach (Book b in c.Cart)
 			{
-				Console.WriteLine(b.Title, b.Author, b.Price, b.Quantity);
+				Console.WriteLine($"b.Title + b.Author + b.Price + b.Quantity");
 			}
 			
 		}
