@@ -131,11 +131,12 @@ namespace midtermBookStorePOS
 		}
 		public static void PrintReceipt(Checkout c)
 		{
+			
 			foreach (Book b in c.Cart)
 			{
-				Console.WriteLine($"b.Title + b.Author + b.Price + b.Quantity");
+				Console.WriteLine($"{b.Title}  {b.Author}  {b.Price}  {b.Quantity}");
 			}
-			
+			Console.WriteLine($"Subtotal:");
 		}
 
 	}

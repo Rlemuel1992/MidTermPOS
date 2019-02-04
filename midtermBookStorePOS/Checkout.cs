@@ -9,10 +9,11 @@ namespace midtermBookStorePOS
 	class Checkout
 	{
 		public List<Book> Cart = new List<Book>();
-		public Menu Item { get; set; }
         public int Quantity { get; set; }
         private readonly double taxRate = 0.06;
 		public double GrandTotal { get; set; }
+		public double Tax { get; set; }
+
 
 
 	
@@ -21,12 +22,12 @@ namespace midtermBookStorePOS
         {
 
 			
-			double subTotal = 0;
+			double SubTotal = 0;
 			foreach (Book q in Cart)
 			{
 				
 				
-				subTotal += q.Price * q.Quantity;
+				SubTotal += q.Price * q.Quantity;
 				Console.WriteLine();
 				Console.WriteLine($"Title: { q.Title}");
 				Console.WriteLine($"Author: {q.Author}");
@@ -36,10 +37,10 @@ namespace midtermBookStorePOS
 				Console.WriteLine("--------------------------------");
 			
 			}
-			Console.WriteLine($"Your subtotal is {subTotal}");
+			Console.WriteLine($"Your subtotal is {SubTotal}");
 
-			double tax = subTotal * taxRate;
-			GrandTotal = subTotal + tax;
+			double Tax = SubTotal * taxRate;
+			GrandTotal = SubTotal + Tax;
 			
 
 		}

@@ -22,6 +22,7 @@ namespace midtermBookStorePOS
             Price = price;
             Title = title;
             Author = author;
-        }       
+            Quantity = quantity;
         }
+    }
 }

@@ -17,13 +17,10 @@ namespace midtermBookStorePOS
 
         public static void Cash(double grandTotal)
         {
-
-			
             Console.WriteLine($"Your total is {grandTotal}, please type in the amount tendered");
             double.TryParse(Console.ReadLine(), out double cashTaken);
             double changeBack = cashTaken - grandTotal;
             Console.WriteLine($"You'll be getting back ${changeBack} Thank you!. ");
-			
         }
 
         public static void Credit()
@@ -64,25 +61,22 @@ namespace midtermBookStorePOS
                         cvvValidator = false;
                 }
                 // Validating the expiration date----------------------------------------
-                Console.WriteLine("Great, we're almost there, now enter your exp date in MMYY format, no special characters!");
+                Console.WriteLine("Great, we're almost there, now enter your exp date in MM/YYYY format, no special characters!");
                 bool expireValidator = true;
                 while (expireValidator == true)
                 {
-                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[1-2]{1}[0-9]{1})$"); //clean regEX
+
+                    Regex ExpireValid = new Regex(@"(^[0-1]{1}[0-9]{1}[- /.][2]{1}[0]{1}[1-9]{1}[0-9]{1})$"); 
                     string expirationNum = Console.ReadLine();
-					if (!ExpireValid.IsMatch(expirationNum))
-					{
-						Console.WriteLine("Wrong format, please use MMYY");
-						expireValidator = true;
-					}
-					else
-					{
-						expireValidator = false;
-						
-					}
-				}
-				
-			}
+                    if (!ExpireValid.IsMatch(expirationNum))
+                    {
+                        Console.WriteLine("Wrong format, please use MM/YYYY");
+                        expireValidator = true;
+                    }
+                    else
+                        expireValidator = false;
+                }
+            }
             isAllValid = false;
         }
         public static void Check()
