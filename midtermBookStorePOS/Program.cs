@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace midtermBookStorePOS
 {
@@ -88,12 +89,24 @@ namespace midtermBookStorePOS
 					Console.WriteLine("Title: " + Books[userNumSelectMenu - 1].Title);
 					Console.WriteLine("Author: " + Books[userNumSelectMenu - 1].Author);
 					Console.WriteLine("$" + Books[userNumSelectMenu - 1].Price);
-					Console.WriteLine("Please input the amount of books you'd like to order.");
 					c.Cart.Add(Books[userNumSelectMenu - 1]);
-					c.Cart[c.Cart.Count - 1].Quantity = int.Parse(Console.ReadLine());
-					
-					
+					bool getQuantity = true;
+					while (getQuantity == true)
+					{
+						Console.WriteLine("Please input the amount of books you'd like to order.");
+						int.TryParse(Console.ReadLine(), out int quantityValidate);
+						if (quantityValidate == 0)
+						{
+							Console.WriteLine("Wrong input!");
+							getQuantity = true;
+						}
+						else
+						{
+							c.Cart[c.Cart.Count - 1].Quantity = quantityValidate;
+							getQuantity = false;
+						}
 
+					}
 					Console.WriteLine("Would you like to add more books on? y/n");
 					string keepShopping = Console.ReadLine().ToLower();
 					if (keepShopping == "y")
@@ -113,6 +126,11 @@ namespace midtermBookStorePOS
 						else if (booksAgain == "n")
 						{
 							moreBooks = true;
+						}
+						else
+						{
+							Console.WriteLine("Wrong input!");
+							
 						}
 					}
 					else if (keepShopping == "n")
