@@ -92,7 +92,7 @@ namespace midtermBookStorePOS
 					c.Cart.Add(Books[userNumSelectMenu - 1]);
 					c.Cart[c.Cart.Count - 1].Quantity = int.Parse(Console.ReadLine());
 					
-					c.CalculatingCost();
+					
 
 					Console.WriteLine("Would you like to add more books on? y/n");
 					string keepShopping = Console.ReadLine().ToLower();
@@ -118,6 +118,7 @@ namespace midtermBookStorePOS
 					else if (keepShopping == "n")
 					{
 						moreBooks = false;
+						c.CalculatingCost();
 						break;
 
 					}
@@ -140,7 +141,7 @@ namespace midtermBookStorePOS
 				Console.WriteLine($"Title: {b.Title} \t\t{b.Quantity} at ${b.Price}");
 				Console.WriteLine($"	By {b.Author}");
 				Console.WriteLine();
-				b.Quantity = 0;
+				
 			}
 			Console.WriteLine("\n\n\n");
 			tax = c.GrandTotal - c.SubTotal;

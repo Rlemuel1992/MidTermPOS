@@ -23,12 +23,12 @@ namespace midtermBookStorePOS
         public void CalculatingCost()
         {
 
-			
+
 			
 			foreach (Book q in Cart)
 			{
-				
-				
+
+
 				SubTotal += q.Price * q.Quantity;
 				Console.WriteLine();
 				Console.WriteLine($"Title: { q.Title}");
@@ -39,6 +39,7 @@ namespace midtermBookStorePOS
 				Console.WriteLine("--------------------------------");
 			
 			}
+			
 			Console.WriteLine($"Your subtotal is {SubTotal}");
 			double Tax = SubTotal * taxRate;
 			GrandTotal = SubTotal + Tax;
