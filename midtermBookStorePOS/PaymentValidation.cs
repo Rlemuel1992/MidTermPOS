@@ -17,10 +17,23 @@ namespace midtermBookStorePOS
 
         public static void Cash(double grandTotal)
         {
-            Console.WriteLine($"Your total is {Math.Round(grandTotal,2)}, please type in the amount tendered");
-            double.TryParse(Console.ReadLine(), out double cashTaken);
-            double changeBack = cashTaken - grandTotal;
-            Console.WriteLine($"You'll be getting back ${changeBack} Thank you!. ");
+			bool getCash = true;
+			while (getCash == true)
+			{
+				Console.WriteLine($"Your total is {Math.Round(grandTotal, 2)}, please type in the amount tendered");
+				double.TryParse(Console.ReadLine(), out double cashTaken);
+				if (cashTaken < grandTotal)
+				{
+					Console.WriteLine("Sorry, you're short on your payment!");
+					getCash = true;
+				}
+				else
+				{
+					getCash = false;
+					double changeBack = cashTaken - grandTotal;
+					Console.WriteLine($"You'll be getting back ${Math.Round(changeBack, 2)} Thank you!. ");
+				}
+			}
         }
 
         public static void Credit(double grandTotal)

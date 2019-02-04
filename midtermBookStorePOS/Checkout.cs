@@ -8,6 +8,7 @@ namespace midtermBookStorePOS
 {
 	class Checkout
 	{
+		
 		public List<Book> Cart = new List<Book>();
         public int Quantity { get; set; }
         private readonly double taxRate = 0.06;
@@ -39,10 +40,10 @@ namespace midtermBookStorePOS
 			
 			}
 			Console.WriteLine($"Your subtotal is {SubTotal}");
-
 			double Tax = SubTotal * taxRate;
 			GrandTotal = SubTotal + Tax;
 			
+
 
 		}
 

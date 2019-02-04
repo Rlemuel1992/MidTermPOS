@@ -23,6 +23,10 @@ namespace midtermBookStorePOS
 				finalAnswer = Console.ReadLine().ToLower();
 				if (finalAnswer == "y")
 				{
+					checkout.SubTotal = 0;
+					checkout.Tax = 0;
+					checkout.GrandTotal = 0;
+					checkout.Cart.Clear();
 					continue;
 				}
 				else if (finalAnswer == "n")
@@ -132,9 +136,11 @@ namespace midtermBookStorePOS
 
 			foreach (Book b in c.Cart)
 			{
+				
 				Console.WriteLine($"Title: {b.Title} \t\t{b.Quantity} at ${b.Price}");
 				Console.WriteLine($"	By {b.Author}");
 				Console.WriteLine();
+				b.Quantity = 0;
 			}
 			Console.WriteLine("\n\n\n");
 			tax = c.GrandTotal - c.SubTotal;
@@ -142,7 +148,7 @@ namespace midtermBookStorePOS
 			Console.WriteLine($"Tax: {Math.Round(tax, 2)}");
 			Console.WriteLine($"Grand Total: {Math.Round(c.GrandTotal,2)}");
 			Console.WriteLine("Thank you for shopping at ConsoleReadLine(YourBooks)\n\n");
-
+			
 		}
 
 	}
