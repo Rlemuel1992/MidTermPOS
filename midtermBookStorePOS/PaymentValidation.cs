@@ -31,7 +31,7 @@ namespace midtermBookStorePOS
 				{
 					getCash = false;
 					double changeBack = cashTaken - grandTotal;
-					Console.WriteLine($"You'll be getting back ${Math.Round(changeBack, 2)} Thank you!. ");
+					Console.WriteLine($"You'll be getting back ${Math.Round(changeBack, 2)} Thank you! \n");
 				}
 			}
         }

@@ -117,8 +117,12 @@ namespace midtermBookStorePOS
 					}
 					if (keepShopping == "y")
 					{
-						Console.WriteLine("Would you like to display the list again? y/n");
-						string booksAgain = Console.ReadLine().ToLower();
+						string booksAgain = "t";
+						while (!booksAgain.Equals("n") && !booksAgain.Equals("y"))
+						{
+							Console.WriteLine("Would you like to display the list again? y/n");
+							booksAgain = Console.ReadLine().ToLower();
+						}
 						if (booksAgain == "y")
 						{
 							num = 1;
@@ -133,11 +137,7 @@ namespace midtermBookStorePOS
 						{
 							moreBooks = true;
 						}
-						else
-						{
-							Console.WriteLine("Wrong input!");
-							
-						}
+						
 					}
 					else if (keepShopping == "n")
 					{
@@ -171,7 +171,7 @@ namespace midtermBookStorePOS
 				Console.WriteLine();
 				
 			}
-			Console.WriteLine("\n\n\n");
+			Console.WriteLine("\n\n");
 			tax = c.GrandTotal - c.SubTotal;
 			Console.WriteLine($"Subtotal: {c.SubTotal}");
 			Console.WriteLine($"Tax: {Math.Round(tax, 2)}");
