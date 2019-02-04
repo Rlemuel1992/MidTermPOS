@@ -95,7 +95,7 @@ namespace midtermBookStorePOS
 					{
 						Console.WriteLine("Please input the amount of books you'd like to order.");
 						int.TryParse(Console.ReadLine(), out int quantityValidate);
-						if (quantityValidate == 0)
+						if (quantityValidate <= 0)
 						{
 							Console.WriteLine("Wrong input!");
 							getQuantity = true;
@@ -107,8 +107,14 @@ namespace midtermBookStorePOS
 						}
 
 					}
-					Console.WriteLine("Would you like to add more books on? y/n");
-					string keepShopping = Console.ReadLine().ToLower();
+					string keepShopping = "t";
+					while (!keepShopping.Equals("n") && !keepShopping.Equals("y"))
+					{
+
+						Console.WriteLine("Would you like to add more books on? y/n");
+						keepShopping = Console.ReadLine().ToLower();
+
+					}
 					if (keepShopping == "y")
 					{
 						Console.WriteLine("Would you like to display the list again? y/n");
@@ -140,7 +146,11 @@ namespace midtermBookStorePOS
 						break;
 
 					}
-
+					else
+					{
+						Console.WriteLine("Wrong input!");
+						
+					}
 				}
 				else
 				{
