@@ -17,21 +17,18 @@ namespace midtermBookStorePOS
 
         public static void Cash(double grandTotal)
         {
-            Console.WriteLine($"Your total is {grandTotal}, please type in the amount tendered");
+            Console.WriteLine($"Your total is {Math.Round(grandTotal,2)}, please type in the amount tendered");
             double.TryParse(Console.ReadLine(), out double cashTaken);
             double changeBack = cashTaken - grandTotal;
             Console.WriteLine($"You'll be getting back ${changeBack} Thank you!. ");
         }
 
-        public static void Credit()
+        public static void Credit(double grandTotal)
         {
-            bool isAllValid = true;
-            while (isAllValid == true)
-            {
 
-
-                // Validating card number---------------------------------------
-                Console.WriteLine("Enter your credit card number");
+			// Validating card number---------------------------------------
+			Console.WriteLine($"Your grand total will be {Math.Round(grandTotal, 2)}");
+			Console.WriteLine("Enter your credit card number");
                 bool cardValidator = true;
                 while (cardValidator == true)
                 {
@@ -76,12 +73,12 @@ namespace midtermBookStorePOS
                     else
                         expireValidator = false;
                 }
-            }
-            isAllValid = false;
+            
         }
-        public static void Check()
+        public static void Check(double grandTotal)
         {
-            // Validating check number ---------------------------------
+			// Validating check number ---------------------------------
+			Console.WriteLine($"Your grand total will be {Math.Round(grandTotal, 2)}");
             Console.WriteLine("Please enter your check number");
             bool validCheckNo = true;
             while (validCheckNo == true)

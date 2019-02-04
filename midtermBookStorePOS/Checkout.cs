@@ -13,6 +13,7 @@ namespace midtermBookStorePOS
         private readonly double taxRate = 0.06;
 		public double GrandTotal { get; set; }
 		public double Tax { get; set; }
+		public double SubTotal { get; set; }
 
 
 
@@ -22,7 +23,7 @@ namespace midtermBookStorePOS
         {
 
 			
-			double SubTotal = 0;
+			
 			foreach (Book q in Cart)
 			{
 				
@@ -61,12 +62,13 @@ namespace midtermBookStorePOS
 				}
 				else if (paymentChoice == "card")
 				{
-					PaymentValidation.Credit();
 					paymentReturn = false;
+					PaymentValidation.Credit(grandTotal);
+					
 				}
 				else if (paymentChoice == "check")
 				{
-					PaymentValidation.Check();
+					PaymentValidation.Check(grandTotal);
 					paymentReturn = false;
 					
 				}

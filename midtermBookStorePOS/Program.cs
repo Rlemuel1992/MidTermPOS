@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace midtermBookStorePOS
 {
-    class Program
-    {
-
+	class Program
+	{
 		
-
 		static void Main(string[] args)
         {
 			PaymentValidation payValidation = new PaymentValidation();
@@ -20,7 +18,7 @@ namespace midtermBookStorePOS
 			{
 				checkout = DisplayMenu(checkout);
 				checkout.PaymentChoice(checkout.GrandTotal);
-				PrintReceipt(checkout);
+				PrintReceipt(checkout, checkout.GrandTotal, checkout.Tax, checkout.SubTotal);
 				Console.WriteLine("Would you like to make another transaction? y/n");
 				finalAnswer = Console.ReadLine().ToLower();
 				if (finalAnswer == "y")
@@ -129,14 +127,22 @@ namespace midtermBookStorePOS
 			}
 			return c;
 		}
-		public static void PrintReceipt(Checkout c)
+		public static void PrintReceipt(Checkout c, double gt, double tax, double st)
 		{
-			
+
 			foreach (Book b in c.Cart)
 			{
-				Console.WriteLine($"{b.Title}  {b.Author}  {b.Price}  {b.Quantity}");
+				Console.WriteLine($"Title: {b.Title} \t\t{b.Quantity} at ${b.Price}");
+				Console.WriteLine($"	By {b.Author}");
+				Console.WriteLine();
 			}
-			Console.WriteLine($"Subtotal:");
+			Console.WriteLine("\n\n\n");
+			tax = c.GrandTotal - c.SubTotal;
+			Console.WriteLine($"Subtotal: {c.SubTotal}");
+			Console.WriteLine($"Tax: {Math.Round(tax, 2)}");
+			Console.WriteLine($"Grand Total: {Math.Round(c.GrandTotal,2)}");
+			Console.WriteLine("Thank you for shopping at ConsoleReadLine(YourBooks)\n\n");
+
 		}
 
 	}
